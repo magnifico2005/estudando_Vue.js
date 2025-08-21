@@ -8,21 +8,18 @@
     <title>Exercícios, $mount</title>
   </head>
   <body>
-    <div id="app">
-      <h1>{{titulo}}</h1>
-      <h1>{{descricao}}</h1>
-    </div>
-    <script>
-      const BoasVindasVueApp = {
-        data() {
-          return {
-            titulo: "Boasa vindas",
-            descricao: "Chegou hora de trabalhar com VueJs 3",
-          };
-        },
-      };
+    <div id="app">{{texto1}} {{texto2}}</div>
 
-      Vue.createApp(BoasVindasVueApp).mount("#app");
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          texto1: "Template",
+          texto2: "Formas alternativas pra carregar o template",
+        },
+        methods: {},
+      });
+      vm.$mount("#app");
     </script>
   </body>
 </html>

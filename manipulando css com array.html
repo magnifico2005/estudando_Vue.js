@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="estilos.css" media="screen" />
+    <script  src="./vue.js"></script>
+    <title>Exercícios, Vue x CSS com arrays</title>
+
+</head>
+<div id="app">
+<h1>Manipulando css com vue.js</h1>
+<p :class="[estilo2,{vermelho: true, destaque: eDestaque}]">Definindo classes com arrays</p>
+<button @click="estilo2 = ''">Remover estilo 2</button>
+<button @click="eDestaque = !eDestaque">é destaque</button>
+</div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {  
+        estilo1: 'vermelho',
+        estilo2: 'texto-branco',
+        estilo3: 'destaque',
+        eDestaque: false,
+           },
+      methods: {  },
+      computed: {},
+      watch:{  }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilos.css" media="screen" />
+    <script src="./vue.js"></script>
+    <title>Exercícios, definindo styles com objetos</title>
+  </head>
+  <body>
+    <div id="app">
+      <form ref="formulario">
+        <span> Nome: </span>
+        <input type="text" id="inputNome" ref="inputNome" />
+
+        <span>Comentário:</span><textarea></textarea>
+        <button @click.prevent="cadastrar">Cadastrar</button>
+      </form>
+      <hr />
+      {{resultado}}
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          resultado: "",
+        },
+
+        methods: {
+          cadastrar() {
+            let nome = this.$refs.inputNome.value;
+            let comentario = this.$refs.formulario[1].value;
+
+            this.resultado = `${nome} disse "${comentario}"`;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

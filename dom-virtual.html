@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilos.css" media="screen" />
+    <script src="./vue.js"></script>
+    <title>Exercícios, definindo styles com objetos</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{texto}}</p>
+      <button @click="modificarTextoVD()">Adicionar @ (VD)</button>
+      <button onclick="modificarTexto()">Adicionar @</button>
+    </div>
+
+    <script>
+      function modificarTexto() {
+        let t = document.querySelector("p").innerText;
+        t += "@";
+        document.querySelector("p").innerText = t;
+      }
+
+      new Vue({
+        el: "#app",
+        data: {
+          texto: "DOM e Virtual COM",
+        },
+        methods: {
+          modificarTextoVD() {
+            this.texto += "@";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="estilos.css" media="screen" />
+    <script  src="./vue.js"></script>
+    <title>Exercícios com whatch</title>
+
+</head>
+<div id="app">
+<h1>Manipulando css com vue.js</h1>
+<p :class="{'vermelho': eVermelho, 'texto-branco': eTextoBranco, destaque: eDestaque}">Definindo classes e objetos</p>
+
+<button @click="eVermelho = !eVermelho">
+  <span v-text="eVermelho ? 'Remover backgraund' : 'Aplicar backgraund'"></span>
+
+</button>
+
+<button @click="eTextoBranco = !eTextoBranco">
+  <span v-text="eTextoBranco ? 'Remover texto branco' : 'Aplicar Texto branco'"></span>
+
+</button>
+
+<button @click="eDestaque = !eDestaque">
+  <span v-text="eTextoBranco ? 'Remover texto branco' : 'Aplicar Texto branco'"></span>
+
+</button>
+</div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {  
+        eVermelho: false,
+        eTextoBranco: false,
+        eDestaque: false
+           },
+      methods: {  },
+      computed: {},
+      watch:{  }
+    });
+  </script>
+</body>
+</html>

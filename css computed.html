@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilos.css" media="screen" />
+    <script src="./vue.js"></script>
+    <title>Exercícios, definindo styles com objetos</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Manipulando styles com objetos</h1>
+      <div :style="estilo">Definindo styles com objetos</div>
+      {{estilo}}
+      <button @click="tamanhoTexto += 5">Aumentar texto</button>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          tamanhoTexto: 30,
+        },
+        methods: {},
+        computed: {
+          estilo() {
+            let width = Math.floor(Math.random() * 100 + 100);
+            let height = Math.floor(Math.random() * 100 + 100);
+
+            let background = "blue";
+
+            let horas = new Date();
+
+            if (horas.getHours() > 18) {
+              background = "red";
+            }
+
+            return {
+              background: "blue",
+              width: 150 + "px",
+              height: 100 + "px",
+              padding: 10 + "px",
+              fontSize: 20 + "px",
+              fontSize: this.tamanhoTexto + "px",
+            };
+          },
+        },
+        watch: {},
+      });
+    </script>
+  </body>
+</html>
