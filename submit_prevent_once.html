@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+    <script  src="./vue.js"></script>
+    <title>Document</title>
+
+
+</head>
+<body>
+    
+    <div id="app">
+      <input type="text" @keyup="imprimirTexto('Enviando parâmetro', 5)">
+      <button @click="mensagemAlerta($event)">Botãoo </button>
+    
+
+
+    <div @mousemove="coordenadas($event)" class="borda div-principal" :class="cor">
+        {{cor}}
+        <br>
+        Posição x do Moiuse: {{posicaoX}}
+        <br>
+        Posição y do mouse: {{posicaoY}}
+
+    </div>
+    <hr>
+    <div @click="mudarCor('verde')" class="borda div-comum"></div>
+    <div @click="mudarCor('azul')"  class="borda div-comum"></div>
+    <div @mouseover="mudarCor('red')"  @mouseout="mudarCor('green')"  class="borda div-comum"></div>
+
+     <div>
+      <button @click.once="executarUmaVez()">Botão </button>
+            <p>Cliques : {{ cliques}}</p>
+     </div>
+
+
+     <hr>
+
+     <div>
+        <form @submit.prevent.once="prevenirUmaVez()">
+        <button type="submit"> Enviar</button>
+        </form>
+        <p>Formulário:  {{formulario}}</p>
+     </div>
+</div>
+
+    <script>
+    const vm =new Vue({
+        el: '#app',
+        data:{
+                xyz: true,
+                cor:'branco',
+                posicaoX: 0,
+                posicaoY: 0,
+                cliques : 0,
+                formulario: ''
+
+        },
+        methods: {
+            imprimirTexto(t,n,x) {
+                console.log(t)
+                console.log(n)
+                console.log(this.xyz)
+            },
+            mensagemAlerta(evento) {
+                console.log("evento", evento)
+            },
+
+            mudarCor(c){
+                  this.cor = c;
+            },
+            coordenadas(e){
+                this.posicaoX = e.clientX
+                this.posicaoY = e.clientY
+                
+            },
+            executarUmaVez(){
+                this.cliques++
+            },
+            prevenirUmaVez(){
+                this.formulario = 'Prevenindo o comportamento padrão'
+            }
+        }
+     })
+             
+       
+     </script>
+</body>
+</html>

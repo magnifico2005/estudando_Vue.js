@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+    <script  src="./vue.js"></script>
+    <title>Exercícios em vue.Js</title>
+
+</head>
+<body>
+        <div id="app">
+            <div id="formContainer">
+        <span>Nome</span>
+        <input type="text" id="inputNome">
+        <span>Idade</span>
+        <input type="text" id="inputIdade">
+        <span>Plano</span>
+        <input type="text" id="inputPlano">
+        <button @click="cadastrar()">Cadastrar Paciente</button>
+</div>
+            <h4 v-if="listaPacientes.length > 0">
+                último paciente cadastrado foi {{ultimoCadastrado}}
+</h4>
+
+        <h4> Pacientes Cadastrados</h4>
+        <p v-for="p in paciente" v-text="p.nome" ></p>
+        <h4> Plano </h4>
+    <p  v-if="pacientePlanoOuro.length > 0" v-for="p in pacientePlanoOuro" v-text="p.nome"></p>
+</div>
+<script>
+    const vm =new Vue({
+        el: '#app',
+        data:{
+            listaPacientes:[]
+            },
+            methods: {
+                  cadastrar(){
+                    this.listaPacientes.push({
+                            nome: inputNome.value,
+                            idade: inputIdade.value,
+                            plano: inputPlano.value
+                           
+                    })
+                 console.log(listaPacientes)
+
+                }
+            },
+
+            computed:{
+              
+                ultimoCadastrado(){
+                    let quantidade = this.listaPacientes.length -1
+                    let txt = ''
+                    txt = 'Nome: ' + this.listaPacientes[quantidade].nome + ' ' + 'Idade: '+ this.listaPacientes[quantidade].idade + ' '+ 
+                    'Plano: ' +this.listaPacientes[quantidade].plano
+                        return txt.toUpperCase();
+                },
+                pacientePlanoOuro(){
+                        let pessoa =this.listaPacientes.filter(item => item.plano == 'gold');
+                    console.log(pessoa)
+                        return pessoa;
+
+                    }
+                
+            }
+        
+        })
+     
+     </script>
+</body>
+</html>

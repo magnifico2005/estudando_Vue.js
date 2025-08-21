@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="v-for.css" media="screen" />
+    <script  src="./vue.js"></script>
+    <title>computed com  vue.Js e lista dinâmica</title>
+
+</head>
+<div id="app">
+    <span>Nome</span>
+    <input type="text" v-model="nome">
+
+    <span>Idade</span>
+    <input type="text" v-model="idade">
+
+    <span>Plano</span>
+    <input type="text" v-model="plano">
+
+    <button @click="cadastrar()">Cadastrar Paciente</button>
+
+    <h4 v-if="listaPacientes.length > 0">
+      Último paciente cadastrado:
+    </h4>
+    <p v-if="listaPacientes.length > 0">{{ ultimoCadastrado }}</p>
+
+    <h4>Todos os Pacientes</h4>
+    <ul>
+      <li v-for="(p, index) in listaPacientes" :key="index">
+        {{ p.nome }} ({{ p.idade }} anos) - Plano: {{ p.plano }}
+      </li>
+    </ul>
+
+    <h4>Pacientes com Plano Gold</h4>
+    <ul>
+      <li v-for="(p, index) in pacientePlanoOuro" :key="'gold-' + index">
+        {{ p.nome }}
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        nome: '',
+        idade: '',
+        plano: '',
+        listaPacientes: []
+      },
+      methods: {
+        cadastrar() {
+          if (this.nome && this.idade && this.plano) {
+            this.listaPacientes.push({
+              nome: this.nome,
+              idade: this.idade,
+              plano: this.plano.toLowerCase()
+            });
+
+            // Limpar campos
+            this.nome = '';
+            this.idade = '';
+            this.plano = '';
+          } else {
+            alert("Preencha todos os campos.");
+          }
+        }
+      },
+      computed: {
+        ultimoCadastrado() {
+          const ultimo = this.listaPacientes[this.listaPacientes.length - 1];
+          return `Nome: ${ultimo.nome.toUpperCase()}, Idade: ${ultimo.idade}, Plano: ${ultimo.plano.toUpperCase()}`;
+        },
+        pacientePlanoOuro() {
+          return this.listaPacientes.filter(p => p.plano === 'gold');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

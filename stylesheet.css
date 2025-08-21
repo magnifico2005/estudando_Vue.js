@@ -1,0 +1,99 @@
+
+ul li{
+   
+    width: 150px;
+    margin: auto;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    list-style-type: none ;
+
+}
+table, th, td{
+    margin: auto;
+    padding: 4px;
+   
+    
+}
+ul li:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+ul li:nth-child(even) {
+  background-color: #e0f7fa;
+}
+ul li {
+  padding: 10px;
+  list-style: none;
+  border: solid 3px;
+  margin:auto;
+}
+table {
+
+  border-collapse: collapse;
+  width: 60%;
+}
+
+th td {
+  padding: 10px;
+  text-align: left;
+  
+}
+
+tbody input tr:nth-child(odd) {
+  background-color: #f2f2f2;
+  display: block;
+  margin: auto;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #d9edf7;
+}
+#publicacao{
+    width: auto;
+    background-color: red;
+}
+input span{
+    display: block;
+    text-align: center;
+       
+    
+    background-color: aquamarine;
+    width: 70px;
+}
+#comentario{
+
+padding: 10px;
+border-radius: 20px;
+background-color: rgb(108, 108, 133);
+
+}
+button{
+display: block;
+margin: auto;
+text-align: center;
+width: 300px;    
+height: 30px;
+}
+#formCadastroPaciente{
+    background-color:darkseagreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#formContainer{
+  margin: auto;
+  font-style: oblique;
+  color: black;
+   width: 30%;
+    display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(172, 167, 167);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+
+}

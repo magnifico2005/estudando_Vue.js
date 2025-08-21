@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="v-for.css" media="screen" />
+    <script  src="./vue.js"></script>
+    <title>computed com  vue.Js e lista dinâmica</title>
+
+</head>
+<div id="app">
+  <label>Texto
+    <input type="text" v-model="texto">
+    <p>{{texto}}</p></label>
+    <hr>
+    <label>Radio </label>
+   <br>
+    <input type="radio" value="f" v-model="radio">Feminino
+    <input type="radio" value="m" v-model="radio">Masculino
+    <Br>
+   <p> {{radio}}</p>
+   
+   <br>
+   <select v-model="plano">
+      <option value="" disabled >selecione um plano</option>
+      <option value="1">Básico 1</option>
+      <option value="2">Básico 2</option>
+      <option value="3">Gold</option>
+   </select>
+   <br>
+   {{plano}}
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: { 
+        radio: '',
+        texto:'',
+        plano:''
+
+        },
+      methods: {  },
+      computed: {}
+    });
+  </script>
+</body>
+</html>
