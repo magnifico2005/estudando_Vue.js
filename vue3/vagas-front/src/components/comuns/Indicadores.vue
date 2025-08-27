@@ -1,15 +1,22 @@
 <template>
-    <div class="h-100 p5 rouded-3 border bg-dark p-1 text-white">
-<p>Vagas Abertas</p>
-<h2>25</h2>
+    <div :class="estilo">
+<p>{{ titulo }}</p>
+<h2>{{ indicador }}</h2>
 
 </div>
 </template>
 
 <script>
 export default {
-    name: 'Indicador'
+    name: 'Indicador',
+    props: ['titulo', 'indicador', 'bg', 'color'],
+    computed:{
+        estilo(){
+            return `h-100 p-5 rouded-3 border ${this.bg} ${this.color}`
+        }
+    }
 }
+
 
 
 </script>
