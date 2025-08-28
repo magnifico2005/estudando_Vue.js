@@ -6,7 +6,7 @@
     <p>{{descricao}}</p>
   </div>
   <div class="card-footer p-1">
-  <small class="text-muted p-1 m-1">Salário: R${{salario}} | Modalidade: {{modalidade}} | Tipo: {{ tipo }} | Publicação: {{publicacao}} </small>  
+  <small class="text-muted p-1 m-1">Salário: R${{salario}} | Modalidade: {{getModalidade}} | getTipo: {{ getTipo }} | Publicação: {{getPublicacao}} </small>  
   </div>
 
 </div>
@@ -53,8 +53,33 @@ export default {
       type:String,
       required: true
     },
+
     
+
    },
+   computed:{
+      getModalidade(){
+        switch(this.modalidade){
+          case '1': return 'Home office'
+          case '2': return 'Presencial'
+        }
+            return ''
+      },
+
+      getTipo(){
+        switch(this.tipo){
+          case '1': return 'clt'
+          case '2': return 'pj'
+        }
+return ''
+      },
+      getPublicacao(){
+
+        let dataPublicacao = new Date(this.publicacao)
+        return dataPublicacao.toLocaleString('pt-BR')
+
+      }
+   }
    
 
 }
