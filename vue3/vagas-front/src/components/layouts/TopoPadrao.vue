@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#" @click="navegarPara()">Home</a>
+          <a class="nav-link" href="#" @click="navegarPara('home')">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" @click="navegarPara()">Publicar Vaga</a>
+          <a class="nav-link" href="#" @click="navegarPara('publicarVaga')">Publicar Vaga</a>
         </li>
         
       </ul>
@@ -24,17 +24,18 @@
 <script>
 export default{
 
+   props:{
+    funcaoCallBack:Function
+   },
+
     name: 'TopoPadrao',
-    methods:{
-    navegarPara(){
-      this.$emit(
-     // console.log('chegamos até aqui'),
-      'nomeDoEventoQueSeraCapturadoNoComponentePai',
-      {msg:'Dando um oi para o componente pai'}
-    )
-    },
+   methods:{
+    navegarPara(p){
+        this.$emit('navegar', p)
+    }
+   }
    
-  }
+  
 
 }
 </script>

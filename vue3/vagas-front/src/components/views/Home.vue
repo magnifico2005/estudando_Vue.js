@@ -50,7 +50,7 @@ export default{
 
      methods:{
         getUsuariosOnline(){
-          this.usuariosOnline = Math.floor(Math.random() * 101)
+          this.usuariosOnline = Math.floor(Math.random() * 101 + 10 /3 *5)
         }
        },
 

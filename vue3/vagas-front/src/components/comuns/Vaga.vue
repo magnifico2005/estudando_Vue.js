@@ -1,7 +1,24 @@
 <template>
     <div class="card">
 
-  <div class="card-header bg-dark text-white">{{titulo}}</div>
+  <div class="card-header bg-dark text-white">
+    <div class="row">
+      <div class="col d-flex justify-content-between">
+        <div>
+          {{titulo}} 
+        </div>
+        <div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" v-model="favoritada">
+            <label class="form-check-label">Favoritar</label>
+         
+          
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
   <div class="card-body">
     <p>{{descricao}}</p>
   </div>
@@ -15,21 +32,27 @@
 <script>
 export default {
     name: 'Vaga',
-   // props: ['tituloVaga', 'descricao', 'salario', 'modalidade' , 'tipo', 'publicacao'],
-   props:{
+
+    data: () =>({
+      favoritada: false
+    }),
+ watch:{
+
+  favoritada(valorNovo){
+    if(valorNovo){
+      this.emitter.emit('favoritarVaga', this.titulo)
+    }else{
+      this.emitter.emit('desFavoritarVaga', this.titulo)
+    }
+  }
+
+ },
+
+     props:{
     titulo: {
       type:String,
       required: true,
-      validator(p)
-      {
-          console.log('Prop: ', p,' tamanho', p.length)
-          if(p.length < 6){
-          return false
-          }
-          console.log('Testando props' , p , 'e' , p.length)
-          return true
-      }
-    },
+       },
     descricao: {
       type:String,
       required: true,
@@ -79,6 +102,9 @@ return ''
         return dataPublicacao.toLocaleString('pt-BR')
 
       }
+   },
+   methods:{
+  
    }
    
 

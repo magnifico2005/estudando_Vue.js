@@ -1,16 +1,10 @@
 <template>
-  <div>
-<h1>{{titulo}}</h1></div>
-<button @click="atualizarComponente()">Atualizar</button>
-<button @click="conteudo = 'home'">Componente Home</button>
-<button @click="conteudo = 'publicarVaga'">Componente publicar vaga</button>
+
+
 
   <keep-alive>
    <component :is="conteudo"></component>
    </keep-alive>
-   
- <!--<home> </home>
- <publicar-vaga></publicar-vaga>-->
 </template>
 
 <script>
@@ -19,21 +13,18 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue';
 import Home from '@/components/views/Home.vue';
 export default{
     name: 'Conteudo',
+    props:{
+      conteudo:{
+          type:String,
+          required: true
 
-    data: () => ({
-      teste: "o componente foi criado",
-      titulo: "Componente Conteúdo",
-      conteudo:'home'
-    }),
+      }
+    },
     components: {
       Home,
       PublicarVaga
     },
-    methods:{
-atualizarComponente(){
-  this.titulo += '*'
-}
-    },
+    
     /*
     beforeCreate(){
       console.log("Componente criado", this.teste)
