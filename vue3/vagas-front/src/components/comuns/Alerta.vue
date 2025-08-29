@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="estiloAlerta" role="Alerta">
     <slot name="titulo">
       <h3>Título da mensagem de feedback</h3>
     </slot>
@@ -15,5 +15,20 @@
 <script>
 export default {
   name: "Alerta",
+  props: {
+    tipo: String,
+  },
+  computed: {
+    estiloAlerta() {
+      switch (this.tipo) {
+        case "erro":
+          return "alert alert-damger";
+        case "sucesso":
+          return "alert alert-success";
+        default:
+          return "alert alert-success";
+      }
+    },
+  },
 };
 </script>

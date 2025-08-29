@@ -69,7 +69,7 @@
 
 <script>
 export default {
-  name: "Publicar Vaga",
+  name: "PublicarVaga",
   data: () => ({
     titulo: "",
     descricao: "",
@@ -78,6 +78,16 @@ export default {
     tipo: "",
   }),
   methods: {
+    validaFormulario() {
+      let valido = true;
+      if (this.titulo === "") valido = false;
+      if (this.descricao === "") valido = false;
+      if (this.salario === "") valido = false;
+      if (this.modalidade === "") valido = false;
+      if (this.tipo === "") valido = false;
+      return valido;
+    },
+
     salvarVaga() {
       let tempoDecorrido = Date.now();
       let dataAtual = new Date(tempoDecorrido);
@@ -94,10 +104,23 @@ export default {
         tipo: this.tipo,
         publicacao: dataAtual.toISOString(),
       });
-      localStorage.setItem("vagas", JSON.stringify(vagas));
-      this.emitter.emit("Alerta");
 
-      this.resetaFormularioCadastroVaga();
+      if (this.validaFormulario()) {
+        localStorage.setItem("vagas", JSON.stringify(vagas));
+
+        this.emitter.emit("Alerta", {
+          tipo: "sucesso",
+          titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!`,
+          descricao: "Parabéns , a vaga foi cadastrada",
+        });
+        this.resetaFormularioCadastroVaga();
+      } else {
+        this.emitter.emit("Alerta", {
+          tipo: "erro",
+          titulo: "Não foi possível realizar o cadastro",
+          descricao: "Preencha todos os campos e tente novamente.",
+        });
+      }
     },
 
     resetaFormularioCadastroVaga() {
