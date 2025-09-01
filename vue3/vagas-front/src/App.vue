@@ -5,6 +5,7 @@
     <Alerta v-if="exibirAlerta" :tipo="Alerta.tipo">
       <template v-slot:titulo>
         <p>{{ Alerta.titulo }}</p>
+        <p>{{ Alerta.descricao }}</p>
       </template>
       <template v-slot:descricao>
         <slot>

@@ -21,8 +21,8 @@ export default {
   computed: {
     estiloAlerta() {
       switch (this.tipo) {
-        case "erro":
-          return "alert alert-damger";
+        case "error":
+          return "alert alert-danger";
         case "sucesso":
           return "alert alert-success";
         default:

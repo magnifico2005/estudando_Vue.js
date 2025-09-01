@@ -116,7 +116,7 @@ export default {
         this.resetaFormularioCadastroVaga();
       } else {
         this.emitter.emit("Alerta", {
-          tipo: "erro",
+          tipo: "error",
           titulo: "Não foi possível realizar o cadastro",
           descricao: "Preencha todos os campos e tente novamente.",
         });

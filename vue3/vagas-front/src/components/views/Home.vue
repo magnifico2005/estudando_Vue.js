@@ -50,7 +50,7 @@ export default{
 
      methods:{
         getUsuariosOnline(){
-          this.usuariosOnline = Math.floor(Math.random() * 101 + 10 /3 *5)
+          this.usuariosOnline = Math.floor(Math.random() * 101 + 10 / 3 *5 + 17)
         }
        },
 
@@ -62,6 +62,7 @@ export default{
     activated(){
       console.log("Componente é ativado")
       setInterval(this.getUsuariosOnline, 1000)
+       this.vagas = JSON.parse(localStorage.getItem('vagas'))
     },
     deactivated(){
       console.log("componente desativado")
@@ -74,9 +75,21 @@ export default{
     },
 
     mounted(){
-      this.vagas = JSON.parse(localStorage.getItem('vagas'))
-    }
+         
+      
+      
+    this.emitter.on('filtrarVagas', (tituloVaga) => {
+     
+      const vagas = JSON.parse(localStorage.getItem('vagas'))
+      console.log(vagas)
+      console.log(tituloVaga)
+
+     this.vagas =   vagas.filter(reg => reg.titulo.toLowerCase().includes(tituloVaga.titulo.toLowerCase()))
+     
+      }
+    )}
 }
+    
 </script>
 
 
