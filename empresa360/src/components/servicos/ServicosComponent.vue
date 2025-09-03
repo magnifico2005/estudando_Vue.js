@@ -1,9 +1,8 @@
 <template>
-  <router-view />
+  <h5>Servíços</h5>
 </template>
-
 <script>
 export default {
-  name: "App",
+  name: "ServicosComponent",
 };
 </script>
