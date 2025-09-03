@@ -7,6 +7,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Site from './views/SiteView.vue'
 import VendasComponent from '@/components/vendas/VendasComponent.vue'
 import ServicosComponent from '@/components/servicos/ServicosComponent.vue'
+import Dashboard from './components/dashboard/Dashboard.vue'
 
 const routes = [
   {
@@ -15,7 +16,7 @@ const routes = [
   },
 
   {
-    path: '/home', // localhost:8080/home
+    path: '/home/dashboard', // localhost:8080/home
     component: HomeView,
     children:[
    {path:'vendas' , component: VendasComponent ,
@@ -29,6 +30,8 @@ const routes = [
     ]
    },
    { path: 'servicos', component: ServicosComponent,
+    },
+ { path: 'dashboard', component: Dashboard,
     }
 
 
