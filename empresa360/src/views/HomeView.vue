@@ -2,7 +2,9 @@
   <div>
     <nav class="navbar navbar-light bg-light menu-superior">
       <div class="container">
-        <a class="navbar-brand" href="#">Empresa 360</a>
+        <router-link class="navbar-brand" href="#" :to="{ name: 'home' }"
+          >Empresa 360</router-link
+        >
         <div class="navbar-nav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -17,33 +19,33 @@
       <div class="list-group menu-esquerda">
         <router-link
           class="list-group-item list-group-item-action"
-          to="/home"
+          :to="{ name: 'home' }"
           active-class="active"
           ><i class="bi bi-speedometer2"></i> Dashboard</router-link
         >
         <router-link
           class="list-group-item list-group-item-action"
-          to="/home/vendas"
+          :to="{ name: 'vendas' }"
           exact-active-class="active"
           ><i class="bi bi-cart"></i> Vendas</router-link
         >
         <router-link
           class="list-group-item list-group-item-action"
-          to="/home/vendas/leads"
+          :to="{ name: 'leads' }"
           exact-active-class="active"
           ><i class="bi bi-caret-right"></i> Leads</router-link
         >
         <router-link
           class="list-group-item list-group-item-action"
-          to="/home/vendas/contratos"
+          :to="{ name: 'contratos' }"
           exact-active-class="active"
           ><i class="bi bi-caret-right"></i> Contratos</router-link
         >
         <router-link
           class="list-group-item list-group-item-action"
-          to="/home/servicos"
+          :to="{ name: 'servicos' }"
           exact-active-class="active"
-          ><i class="bi bi-card-checklist"></i> Servíços</router-link
+          ><i class="bi bi-card-checklist"></i> Serviços</router-link
         >
       </div>
 
