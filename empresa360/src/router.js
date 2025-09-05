@@ -20,6 +20,7 @@ import DashboardRodape from '@/components/dashboard/DashboardRodape.vue'
 const routes = [
   {
     path: '/',
+    alias:"/app",
     component: Site
   },
 
@@ -34,7 +35,7 @@ const routes = [
         path: 'leads', component: Leads, name:'leads',
       }, // localhost:8080/home/vendas/leads
       {
-        path: 'lead/:id', component: Lead, name: 'lead'
+        path: 'lead/:id', component: Lead, name: 'lead', alias :[ '/l/:id','/pessoa/:id', '/:id']
       }, // localhost:8080/home/vendas/leads/lead
         {
         path: 'contratos', component: Contratos , name:'contratos'
@@ -46,7 +47,7 @@ const routes = [
    },
    { path: 'servicos', component:ServicosComponent, name:'servicos',
     children:[
-      {path: ':id', components:{default:Servico,indicadores: Indicadores,opcoes: Opcoes}, name:'servico'} 
+      {path: ':id', alias:'/s/:id', components:{default:Servico,indicadores: Indicadores,opcoes: Opcoes}, name:'servico'} 
     ]
     },
  { path: 'dashboard', components: 

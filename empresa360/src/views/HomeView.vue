@@ -25,7 +25,7 @@
         >
         <router-link
           class="list-group-item list-group-item-action"
-          :to="{ name: 'vendas' }"
+          :to="{ name: 'vendaPadrao' }"
           exact-active-class="active"
           ><i class="bi bi-cart"></i> Vendas</router-link
         >
