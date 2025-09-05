@@ -15,12 +15,16 @@ export default {
   created() {
     this.getDadosApi(`http://localhost:3000/servicos/${this.$route.params.id}`);
   },
-  watch: {
+  beforeRouteUpdate(to) {
+    if (to.params.id != undefined)
+      this.getDadosApi(`http://localhost:3000/servicos/${to.params.id}`);
+  },
+  /*watch: {
     $route(to) {
       console.log(to.params);
       if (to.params.id != undefined)
         this.getDadosApi(`http://localhost:3000/servicos/${to.params.id}`);
     },
-  },
+  },*/
 };
 </script>

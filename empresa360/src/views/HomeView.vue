@@ -19,7 +19,7 @@
       <div class="list-group menu-esquerda">
         <router-link
           class="list-group-item list-group-item-action"
-          :to="{ name: 'home' }"
+          :to="{ name: 'dashboard' }"
           active-class="active"
           ><i class="bi bi-speedometer2"></i> Dashboard</router-link
         >
@@ -33,7 +33,7 @@
           class="list-group-item list-group-item-action"
           :to="{ name: 'leads' }"
           exact-active-class="active"
-          ><i class="bi bi-caret-right"></i> Leads</router-link
+          ><i class="bi bi-caret-right"> Leads </i></router-link
         >
         <router-link
           class="list-group-item list-group-item-action"
@@ -63,6 +63,9 @@
         </div>
       </div>
     </div>
+    <div class="rodape">
+      <router-view name="rodape"></router-view>
+    </div>
   </div>
 </template>
 
@@ -79,6 +82,14 @@
 .list-group-item {
   border-top: none;
   border-right: none;
+}
+.rodape {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: aquamarine;
+  text-align: center;
 }
 /*
 .router-link-exact-active {
